@@ -12,7 +12,7 @@ const clovaSkillHandler = clova.Client
   // スキルが起動したときに呼び出されます
   .onLaunchRequest(responseHelper => {
     responseHelper.setSimpleSpeech(
-      clova.SpeechBuilder.createSpeechText('ご注文は何にしましょうか？')
+      clova.SpeechBuilder.createSpeechText('感染者数を知りたい都道府県を教えてください。')
     );
   })
   
