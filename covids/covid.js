@@ -10,14 +10,15 @@ const client = new line.Client({
 const clovaSkillHandler = clova.Client
   .configureSkill()
   // スキルが起動したときに呼び出されます
-  .onLaunchRequest(responseHelper => {
+    const json = JSON.parse(fs.readFileSync('./daily_positive_detail.json', 'utf8'));
+    const latest_data = json.data.slice(-1)[0];
+    const date = new Date(latest_data.diagnosed_date);
+
     responseHelper.setSimpleSpeech(
-      clova.SpeechBuilder.createSpeechText('ご注文は何にしましょうか？')
+        SpeechBuilder.createSpeechText(`東京都の${date.getMonth()+1}月${date.getDate()}日の感染者数は${latest_data.count}人です。`)
     );
-  })
-  
+    responseHelper.endSession();
+
 // スキルが終了するときに呼び出されます
-  .onSessionEndedRequest()
-  .handle();
 
 module.exports = clovaSkillHandler;
