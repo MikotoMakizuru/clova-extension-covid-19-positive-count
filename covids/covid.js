@@ -15,6 +15,10 @@ const clovaSkillHandler = clova.Client
       clova.SpeechBuilder.createSpeechText('感染者数を知りたい都道府県を教えてください。')
     );
   })
+  //都道府県が発話されたときに呼び出されます
+  .onIntentRequest(async responseHelper => {
+
+  })
   
 // スキルが終了するときに呼び出されます
   .onSessionEndedRequest()
