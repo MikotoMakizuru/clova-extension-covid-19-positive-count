@@ -17,6 +17,7 @@ const clovaSkillHandler = clova.Client
   })
   //都道府県が発話されたときに呼び出されます
   .onIntentRequest(async responseHelper => {
+    const intent = responseHelper.getIntentName();
 
   })
   
